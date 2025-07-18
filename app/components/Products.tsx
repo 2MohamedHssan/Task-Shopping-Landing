@@ -19,10 +19,10 @@ function Products() {
   });
 
   return (
-    <div className="text-center my-20 min-h-screen">
+    <div className="text-center py-20 min-h-screen">
       <h1 className="text-3xl font-bold mb-6">View Products</h1>
 
-      <div className="flex text-white justify-center gap-4 mb-6">
+      <div className="flex justify-center gap-4 mb-6">
         <input
           type="number"
           value={minPrice}
@@ -32,6 +32,7 @@ function Products() {
           placeholder="Min Price"
           className="border rounded p-2"
         />
+
         <input
           type="number"
           value={maxPrice}

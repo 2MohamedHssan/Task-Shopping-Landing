@@ -33,7 +33,7 @@ export default function RootLayout({
       >
           <DataProvider>
         <Navbar />
-        <div className="flex-grow bg-gradient-to-l from-[#e0c3fc] to-[#8ec5fc]">
+        <div className="flex-grow">
             <CartProvider>{children}</CartProvider>
         </div>
           </DataProvider>

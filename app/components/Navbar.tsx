@@ -31,7 +31,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex justify-between gap-20 items-center p-4 bg-gray-800 text-white">
+    <div className="flex text-nowrap justify-between gap-10 md:gap-20 items-center p-4 bg-gray-800 text-white">
       <Link href="/">My Store</Link>
       <input
         onChange={(e) => {
