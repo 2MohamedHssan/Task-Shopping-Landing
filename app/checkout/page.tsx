@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CartContext } from "../context/Cartcontext";
+import Link from "next/link";
 
 const CheckoutSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -54,12 +55,12 @@ export default function CheckoutPage() {
             ✅ Order Confirmed
           </h1>
           <p className="text-gray-600 mb-4">Thanks for your order!</p>
-          <button
-            onClick={() => setOrderConfirmed(false)}
+          <Link
+            href={"/"}
             className="px-4 py-2 bg-blue-600 text-white cursor-pointer rounded hover:bg-blue-700 transition"
           >
             Back to Home
-          </button>
+          </Link>
         </div>
       </div>
     );

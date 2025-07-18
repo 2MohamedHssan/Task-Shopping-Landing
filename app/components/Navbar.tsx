@@ -31,34 +31,42 @@ function Navbar() {
   };
 
   return (
-    <div className="flex text-nowrap justify-between gap-10 md:gap-20 items-center p-4 bg-gray-800 text-white">
-      <Link href="/">My Store</Link>
-      <input
-        onChange={(e) => {
-          HandleSearch(e);
-        }}
-        type="search"
-        className="border-b-white border-b flex-grow focus:outline-none"
-        placeholder="Search products"
-      />
-      <Link href="/cart" className="link link-hover">
-        Cart
-      </Link>
-      {open && (
-        <ul className="flex gap-4 flex-col bg-white text-black p-4 absolute top-16 right-[10%] w-[80%] shadow-lg rounded-lg">
-          {empty ? (
-            <li className="text-red-500">No products found</li>
-          ) : (
-            <li className="text-gray-500">Search Results:</li>
-          )}{" "}
-          {searchTerm?.map((product: Product) => (
-            <li key={product.id} className="hover:bg-gray-200 p-2 rounded">
-              <Link href={`/products/${product.id}`}>{product.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <nav className="bg-gray-800 text-white sticky top-0 w-full z-50 shadow-md">
+      <div className="container mx-auto flex justify-between gap-5 md:gap-20 items-center p-4  text-white">
+        <Link href="/" className="text-nowrap">
+          My Store
+        </Link>
+        <input
+          onChange={(e) => {
+            HandleSearch(e);
+          }}
+          type="search"
+          className="border-b-white border-b md:flex-grow focus:outline-none"
+          placeholder="Search products"
+        />
+        <Link href="/cart" className="link link-hover">
+          Cart
+        </Link>
+        {open && (
+          <ul className="flex gap-4 flex-col bg-white text-black p-4 absolute top-16 right-[10%] w-[80%] shadow-lg rounded-lg">
+            {empty ? (
+              <li className="text-red-500">No products found</li>
+            ) : (
+              <li className="text-gray-500">Search Results:</li>
+            )}{" "}
+            {searchTerm?.map((product: Product) => (
+              <li
+                key={product.id}
+                onClick={() => setOpen(false)}
+                className="hover:bg-gray-200 p-2 rounded"
+              >
+                <Link href={`/products/${product.id}`}>{product.title}</Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </nav>
   );
 }
 
